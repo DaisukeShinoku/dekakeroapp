@@ -20,10 +20,11 @@
                 <a href="/logout" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">ログアウト</a>
             </li>
         </ul>
-        <form class="grid grid-cols-1 gap-6 m-16">
+        <form action="/test/input" method="post" class="grid grid-cols-1 gap-6 m-16">
+            @csrf
             <label class="block">
                 <span class="text-gray-700">出発地を選択</span>
-                <select
+                <select name="place"
                     class="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="0" selected>どこでもいい</option>
                     <option value="1">新宿駅</option>
@@ -35,7 +36,7 @@
             </label>
             <label class="block">
                 <span class="text-gray-700">屋外 or 屋内</span>
-                <select
+                <select name="outside_flg"
                     class="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="2" selected>どっちでもいい</option>
                     <option value="0">屋内</option>
@@ -44,7 +45,7 @@
             </label>
             <label class="block">
                 <span class="text-gray-700">クルマ使う？</span>
-                <select
+                <select name="car_flg"
                     class="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="2" selected>どっちでもいい</option>
                     <option value="0">使う</option>
