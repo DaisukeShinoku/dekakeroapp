@@ -35,13 +35,13 @@ class AuthController extends Controller
         if (Auth::attempt($datum) === false) {
             return back()
                    ->withInput() // 入力値の保持
-                   ->withErrors(['auth' => 'emailかパスワードに誤りがあります。',]) // エラーメッセージの出力
+                   ->withErrors(['auth' => 'メールアドレスかパスワードに誤りがあります。',]) // エラーメッセージの出力
                    ;
         }
 
         //
         $request->session()->regenerate();
-        return redirect()->intended('/');
+        return redirect()->intended('/')->with('success_message', 'ログインしました');
     }
 
     /**
@@ -53,6 +53,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->regenerateToken();  // CSRFトークンの再生成
         $request->session()->regenerate();  // セッションIDの再生成
-        return redirect(route('front.index'));
+        return redirect(route('front.index'))->with('flash_message', 'ログアウトしました');
     }
 }
