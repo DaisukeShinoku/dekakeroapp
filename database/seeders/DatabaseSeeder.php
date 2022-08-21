@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FrontAuthUser::class);
         $this->call(PlaceSeeder::class);
         $this->call(CourseSeeder::class);
+        $this->call(FavoriteSeeder::class);
     }
 }

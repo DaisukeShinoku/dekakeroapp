@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Favorite extends Model
 {
     use HasFactory;
-    protected $primaryKey = null;
+    protected $primaryKey = ['user_id', 'course_id'];
     public $incrementing = false;
+
+    public function user(){
+        return $this->belongsTo(User::class, "user_id");
+    }
+
+    public function course(){
+        return $this->belongsTo(Course::class, "course_id");
+    }
 }
