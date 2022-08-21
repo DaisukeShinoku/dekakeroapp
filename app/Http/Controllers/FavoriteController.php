@@ -24,18 +24,37 @@ class WelcomeController extends Controller
     $places = Place::orderBy('place_id')->get();
     return view('welcome', ['places' => $places]);
   }
-
+  public function result_hoge()
+  {
+      $course = Course::where('course_id', 301)->first();
+      return view('result', ['course' => $course]);
+  }
+  public function favorite()
+  {
+      return view('favorite');
+  }
+  public function test()
+  {
+      return view('test');
+  }
+  public function input2(Request $request)
+  {
+      //
+      $place = $request->input('place');
+      $outside_flg = $request->input('outside_flg');
+      $car_flg = $request->input('car_flg');
+      var_dump($place, $outside_flg, $car_flg); exit;
+      
+      //return view('test.input');
+  }
   public function result(Request $request)
   {
-      $url_array =  parse_url(url()->previous());
-      $prev_path = $url_array['path'];
-
       $place_id = $request->input('place');
       $outside_flg = $request->input('outside_flg');
       $car_flg = $request->input('car_flg');
 
       $course = Course::inRandomOrder();
-
+      
       if($place_id != 0)
       {
         $course = $course->where('place_id', $place_id);
@@ -52,11 +71,6 @@ class WelcomeController extends Controller
       }
 
       $course = $course->first();
-      return view('result', ['course' => $course, 'prev_path' => $prev_path]);
-  }
-
-  public function favorite()
-  {
-      return view('favorite');
+      return view('result', ['course' => $course]);
   }
 }

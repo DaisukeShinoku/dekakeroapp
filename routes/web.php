@@ -20,7 +20,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/welcome', [WelcomeController::class, 'index']);
-    Route::get('/result', [WelcomeController::class, 'result']);
+    Route::post('/result', [WelcomeController::class, 'result']);
     Route::get('/favorite', [WelcomeController::class, 'favorite']);
     Route::get('/test', [WelcomeController::class, 'test']);
     Route::post('/test/input', [WelcomeController::class, 'input']);
