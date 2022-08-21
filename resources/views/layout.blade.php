@@ -76,9 +76,9 @@
                 @endif
             @endif
             @if ($errors->any())
-                <div>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded" role="alert">
                 @foreach ($errors->all() as $error)
-                    {{ $error }}<br>
+                    <strong class="font-bold">{{ $error }}</strong><br>
                 @endforeach
                 </div>
             @endif

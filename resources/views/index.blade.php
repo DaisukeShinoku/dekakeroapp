@@ -32,7 +32,7 @@
         <br>
         <div class="w-auto">
             <button class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 w-full" type="submit">
-                <a href="/">ログインせずにDEKAKEROで遊ぶ</a>
+                <a href="/">ログインせずに使う</a>
             </button>
         </div>
     </section>
