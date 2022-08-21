@@ -22,5 +22,11 @@ class FrontAuthUser extends Seeder
             'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => Hash::make('hoge'),
         ]);
+        DB::table('users')->insert([
+            'name' => 'ゲストユーザ',
+            'email' => 'guest@guest',
+            'email_verified_at' => date('Y-m-d H:i:s'),
+            'password' => Hash::make('guest'),
+        ]);
     }
 }

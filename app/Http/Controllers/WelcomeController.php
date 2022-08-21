@@ -14,11 +14,6 @@ use App\Http\Controllers\Controller;
 
 class WelcomeController extends Controller
 {
-  /**
-   * トップページ を表示する
-   * 
-   * @return \Illuminate\View\View
-   */
   public function index()
   {
     $places = Place::orderBy('place_id')->get();
@@ -27,8 +22,8 @@ class WelcomeController extends Controller
 
   public function result(Request $request)
   {
-      $url_array =  parse_url(url()->previous());
-      $prev_path = $url_array['path'];
+      $prev_url_array =  parse_url(url()->previous());
+      $prev_path = $prev_url_array['path'];
 
       $place_id = $request->input('place');
       $outside_flg = $request->input('outside_flg');
@@ -53,10 +48,5 @@ class WelcomeController extends Controller
 
       $course = $course->first();
       return view('result', ['course' => $course, 'prev_path' => $prev_path]);
-  }
-
-  public function favorite()
-  {
-      return view('favorite');
   }
 }

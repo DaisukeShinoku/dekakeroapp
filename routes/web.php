@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -15,14 +16,13 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', [AuthController::class, 'index'])->name('front.index');
+Route::get('/login', [AuthController::class, 'index'])->name('front.index');
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/result', [WelcomeController::class, 'result']);
+
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/welcome', [WelcomeController::class, 'index']);
-    Route::post('/result', [WelcomeController::class, 'result']);
-    Route::get('/favorite', [WelcomeController::class, 'favorite']);
-    Route::get('/test', [WelcomeController::class, 'test']);
-    Route::post('/test/input', [WelcomeController::class, 'input']);
+    Route::get('/favorite', [FavoriteController::class, 'index']);
     Route::get('/logout', [AuthController::class, 'logout']);
 });
