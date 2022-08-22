@@ -45,7 +45,7 @@
                         </li>
                     @elseif ($cur_path == ('/result'))
                         <li class="mr-2">
-                            <a tabindex="-1" aria-current="page" class="inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500">検索結果</a>
+                            <a tabindex="-1" aria-current="page" class="inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500">検索</a>
                         </li>
                     @else
                         <li class="mr-2">
@@ -63,11 +63,11 @@
                     @endif
                     @if (Auth::check())
                     <li class="mr-2">
-                        <a href="/logout" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">ログアウト</a>
+                        <a href="/logout" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">ﾛｸﾞｱｳﾄ</a>
                     </li>
                     @else
                     <li class="mr-2">
-                        <a href="/login" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">ログイン</a>
+                        <a href="/login" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">ﾛｸﾞｲﾝ</a>
                     </li>
                     @endif
                 </ul>
